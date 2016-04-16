@@ -1,0 +1,50 @@
+{
+  "name": "ten-ply-crest",
+  "version": "0.23.53",
+  "description": "LetsEncrypt middleware for Express with pluggable data store",
+  "main": "lib/middleware.js",
+  "dependencies": {
+    "consul": "^0.25.0",
+    "errify": "^1.0.0",
+    "express": "^4.13.4",
+    "flannel": "^0.9.5",
+    "iced-runtime": "^1.0.3",
+    "node-forge": "^0.6.39",
+    "node-vault": "^0.4.5",
+    "rawacme": "^0.2.0",
+    "restify-errors": "^4.2.1",
+    "rsa-keygen": "^1.0.6",
+    "source-map-support": "^0.4.0",
+    "spine": "^1.6.2",
+    "spine-relations": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "nextorigin-express-skeleton": "^0.10.4"
+  },
+  "devDependencies": {
+    "iced-coffee-script": "^108.0.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/iced-coffee-script/bin/coffee --bare --map --runtime node -o lib/ -c src/",
+    "start": "node lib/standalone.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nextorigin/ten-ply-crest.git"
+  },
+  "keywords": [
+    "letsencrypt",
+    "acme",
+    "express",
+    "middleware",
+    "ssl",
+    "automatic"
+  ],
+  "author": "doublerebel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nextorigin/ten-ply-crest/issues"
+  },
+  "homepage": "https://github.com/nextorigin/ten-ply-crest#readme"
+}
