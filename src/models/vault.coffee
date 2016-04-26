@@ -25,6 +25,7 @@ class VaultModel extends Spine.Model
     await @vault.read path, ideally defer result
 
     attrs               = result.data
+    attrs.id            = id
     lease_expires       = new Date Date.now() + result.lease_duration * 1000
     attrs.lease_expires = lease_expires.toUTCString()
     [record]            = @refresh attrs
