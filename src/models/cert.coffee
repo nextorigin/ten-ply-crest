@@ -91,6 +91,7 @@ class Cert extends VaultModel
     await @le.setup ideally defer()
     super
     await @setupAccount ideally defer()
+    await @holdIntermediateCert ideally defer @intermediateCert
     callback null, @keypair
 
   @setupAccount: (callback = ->) ->
@@ -102,6 +103,10 @@ class Cert extends VaultModel
     await @le.getTosLink @account_uri, ideally defer link
     await @le.agreeToTos @account_uri, link, ideally defer()
     callback()
+
+  @holdIntermediateCert: (callback) ->
+    @info "retrieving intermediate cert"
+    LetsEncrypt.intermediateCert callback
 
   @findPrimary: (id, callback) ->
     ideally = errify callback
@@ -146,6 +151,7 @@ class Cert extends VaultModel
     await @constructor.le.requestSigning csr, @id, ideally defer poll_location
     await @constructor.le.waitForCert poll_location, ideally defer @cert
 
+    @cert += @intermediateCert
     @constructor.info "acquired cert for #{@id}"
     @key = privateKey.toString()
     callback null, @cert

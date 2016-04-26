@@ -8,6 +8,20 @@ errify  = require "errify"
 class LetsEncrypt
   logPrefix: "(LetsEncrypt)"
 
+  @intermediateCert: (callback) ->
+    ideally = errify callback
+    https   = require "https"
+    url     = require "url"
+    certurl = "https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem"
+    data    = []
+
+    await https.get (url.parse certurl), defer res
+    res.on "data", (chunk) -> data.push chunk
+    res.on "error", callback
+    await res.on "end", ideally defer()
+    binary = Buffer.concat data
+    callback null, binary.toString()
+
   @createKeypair: (bit = 2048) ->
     result = Keygen.generate bit
     keypair =
