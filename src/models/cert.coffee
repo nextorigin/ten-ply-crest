@@ -151,7 +151,7 @@ class Cert extends VaultModel
     await @constructor.le.requestSigning csr, @id, ideally defer poll_location
     await @constructor.le.waitForCert poll_location, ideally defer @cert
 
-    @cert += @intermediateCert
+    @cert += @constructor.intermediateCert
     @constructor.info "acquired cert for #{@id}"
     @key = privateKey.toString()
     callback null, @cert
