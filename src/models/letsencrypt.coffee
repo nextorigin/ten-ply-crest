@@ -52,7 +52,7 @@ class LetsEncrypt
     await @acme.newReg {contact: mailto}, @keypair, ideally defer {headers}
     ## might return 409 for a duplicate reg, but will still send location header
     ## https://github.com/letsencrypt/boulder/issues/1135
-    err = "did not receive location" unless {location} = headers
+    err = "did not receive location" unless location = headers.location
     callback err, location
 
   getReg: (location, body = {}, callback) ->
@@ -72,7 +72,7 @@ class LetsEncrypt
     @info "getting TOS link for #{location}"
     ideally = errify callback
     await @getReg location, null, ideally defer {headers}
-    err = "did not receive link" unless {link} = headers
+    err = "did not receive link" unless link = headers.link
 
     ## comes in format:
     ## <http://...>; rel=next, <http://...>; rel=...,
@@ -90,7 +90,7 @@ class LetsEncrypt
     ideally = errify callback
 
     await @acme.newAuthz (@makeAuthRequest domain), @keypair, ideally defer {body, headers}
-    return callback "did not receive location" unless {location} = headers
+    return callback "did not receive location" unless location = headers.location
 
     {challenges} = body
     return callback "did not receive challenges" unless challenges
@@ -191,7 +191,7 @@ class LetsEncrypt
     ideally = errify callback
 
     await @acme.newCert (@makeCertRequest csr, 90), @keypair, ideally defer {headers}
-    err = "did not receive location" unless {location} = headers
+    err = "did not receive location" unless location = headers.location
     callback err, location
 
   makeCertRequest: (csr, days = 90) ->
