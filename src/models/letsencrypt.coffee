@@ -190,8 +190,9 @@ class LetsEncrypt
     @info "requesting signing for #{domain}"
     ideally = errify callback
 
-    await @acme.newCert (@makeCertRequest csr, 90), @keypair, ideally defer {headers}
+    await @acme.newCert (@makeCertRequest csr, 90), @keypair, ideally defer {headers, body}
     err = "did not receive location" unless location = headers.location
+    err = body if (status = body.status) and status >= 400
     callback err, location
 
   makeCertRequest: (csr, days = 90) ->

@@ -124,8 +124,8 @@ class Cert extends VaultModel
 
   addSANs: (subject_alt_names) ->
     @subject_alt_names or= []
-    @subject_alt_names.concat subject_alt_names
-    @subject_alt_names = unique subject_alt_names.sort()
+    @subject_alt_names = @subject_alt_names.concat subject_alt_names
+    @subject_alt_names = unique @subject_alt_names.sort()
 
   register: (callback) ->
     @constructor.info "registering domain #{@id}"

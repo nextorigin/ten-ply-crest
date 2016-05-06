@@ -129,7 +129,8 @@ class TenPlyCrest
 
       if subject_alt_names?.length
         cert.addSANs subject_alt_names
-        if cert.diff()
+        if diff = cert.diff()
+          @info "cert changed values:", diff
           await cert.save defer err, cert
           newDomains.push domain unless err
 
@@ -137,7 +138,7 @@ class TenPlyCrest
     callback err, newDomains
 
   makeCertFromDomain: (domain, callback) ->
-    return (callback or @warn) "not creating cert, #{domain} is locked" if @locked domain
+    return (callback or @warn.bind this) "not creating cert, #{domain} is locked" if @locked domain
     @info "creating cert for domain #{domain}"
     ideally = errify callback or @err.bind this
     @lock domain
