@@ -122,7 +122,7 @@ class TenPlyCrest
 
     newDomains = []
     for domain in domains
-      await @Store.find domain, defer _, cert
+      await @Store.findPrimary domain, defer _, cert
       unless cert?.cert
         newDomains.push domain
         continue
