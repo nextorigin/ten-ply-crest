@@ -137,9 +137,9 @@ class TenPlyCrest
     callback err, newDomains
 
   makeCertFromDomain: (domain, callback) ->
-    return callback "not creating cert, #{domain} is locked" if @locked domain
+    return (callback or @warn) "not creating cert, #{domain} is locked" if @locked domain
     @info "creating cert for domain #{domain}"
-    ideally = errify callback or @err
+    ideally = errify callback or @err.bind this
     @lock domain
 
     await @Store.findPrimary domain, defer _, cert
