@@ -68,7 +68,7 @@ class Cert extends VaultModel
     "lease_expires",
     # "renewing" # timestamp for when we last started renewing, false if not renewing. so we don't double up on a slow renew
 
-    "parent_id" # if this is a san, it will have a parent cert
+    "parent_id", # if this is a san, it will have a parent cert
 
     # Optional
     # npn: [ ... ]
