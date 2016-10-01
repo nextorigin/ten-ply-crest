@@ -71,6 +71,7 @@ class Cert extends VaultModel
     "parent_id", # if this is a san, it will have a parent cert
 
     # Optional
+    "npn"
     # npn: [ ... ]
     # ticket_key: ""
 
