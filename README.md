@@ -2,12 +2,12 @@
 
 LetsEncrypt middleware for Express with pluggable data store
 
-# Installation
+## Installation
 ```sh
-npm install ten-ply-crest
+npm install --save ten-ply-crest
 ```
 
-# Introduction
+## Introduction
 
 **ten-ply-crest** is a LetsEncrypt client that does not touch the filesystem or make assumptions about your architecture.  Almost every existing client stores sensitive SSL keys, certs, and challenges in the filesystem, and assumes it is running on a public-facing server.
 
@@ -29,15 +29,15 @@ Therefore, **ten-ply-crest**:
     - model (data store for certs)
     - adapter (LetsEncrypt client)
 
-# Usage
+## Usage
 
-## Standalone
+### Standalone
 
 ```sh
 npm start
 ```
 
-## Middleware
+### Middleware
 
 From `src/server.coffee`
 ```coffee
