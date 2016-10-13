@@ -66,3 +66,7 @@ if we don't have this domain in our vault list, we generate a letsencrypt cert
 we store the cert in the vault with a lease 15 days before expiration, and we cache it
 when the load-balancer asks for the cert we hand it the cert
 ```
+
+## License
+
+MIT
