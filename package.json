@@ -19,7 +19,7 @@
     "spine-relations": "^1.0.0"
   },
   "optionalDependencies": {
-    "nextorigin-express-skeleton": "^0.15.4"
+    "nextorigin-express-skeleton": "^0.16.0"
   },
   "devDependencies": {
     "iced-coffee-script": "^108.0.11"
