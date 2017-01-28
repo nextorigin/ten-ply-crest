@@ -6,7 +6,7 @@
   "dependencies": {
     "consul": "^0.27.0",
     "errify": "^1.0.0",
-    "express": "^4.13.4",
+    "express": "^4.14.1",
     "flannel": "^0.10.0",
     "iced-runtime": "^1.0.3",
     "node-forge": "^0.6.39",
