@@ -10,7 +10,7 @@
     "flannel": "^0.10.0",
     "iced-runtime": "^1.0.3",
     "node-forge": "^0.6.39",
-    "node-vault": "^0.5.5",
+    "node-vault": "^0.5.6",
     "rawacme": "^0.2.0",
     "restify-errors": "^4.2.1",
     "rsa-keygen": "^1.0.6",
