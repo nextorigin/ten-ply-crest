@@ -14,7 +14,7 @@
     "rawacme": "^0.2.0",
     "restify-errors": "^4.2.1",
     "rsa-keygen": "^1.0.6",
-    "source-map-support": "^0.4.0",
+    "source-map-support": "^0.4.15",
     "spine": "^1.6.2",
     "spine-relations": "^1.0.0"
   },
