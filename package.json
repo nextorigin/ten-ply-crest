@@ -4,7 +4,7 @@
   "description": "LetsEncrypt middleware for Express with pluggable data store",
   "main": "lib/middleware.js",
   "dependencies": {
-    "consul": "^0.27.0",
+    "consul": "^0.29.0",
     "errify": "^1.0.0",
     "express": "^4.13.4",
     "flannel": "^0.10.0",
